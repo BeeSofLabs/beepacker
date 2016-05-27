@@ -1,4 +1,4 @@
-root  = "/home/deployer/ombre"
+root  = "/home/deployer/beepacker"
 app   = "#{root}/current" 
 
 pid           "#{root}/unicorn.pid"
