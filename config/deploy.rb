@@ -3,7 +3,7 @@ lock '3.4.0'
 
 set :application, 'beepacker'
 # set :repo_url, 'https://github.com/vltlabs/ombre.git'
-set :repo_url, 'git@github.com:vltlabs/ombre.git'
+set :repo_url, 'git@github.com:BeeSofLabs/beepacker.git'
 set :user, 'deployer'
 
 set :ssh_options, { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa_digitalocean.pub) }
