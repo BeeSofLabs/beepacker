@@ -11,9 +11,9 @@ role :web,  %w{deployer@128.199.98.84}
 role :db,   %w{deployer@128.199.98.84}
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, '/home/deployer' #'/var/www/beepacker'
+set :deploy_to, '/home/deployer/beepacker' #'/var/www/beepacker'
 
-set :tmp_dir, "/home/deployer"
+set :tmp_dir, "/home/deployer/beepacker"
 set :branch, 'master'
 set :rails_env, :production
 
