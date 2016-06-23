@@ -46,4 +46,21 @@ class Api::V1::ApiController < ActionController::Base
       return unauthenticated!
     end
   end
+  
+  
+  
+  def decode_picture_data(image64)
+      # remove `data:image/jpeg;base64,`
+      image64.gsub!(/^(.*base64,)/i, '')
+      # decode the base64
+      data = StringIO.new(Base64.decode64(image64))
+
+      # assign some attributes for carrierwave processing
+      data.class.class_eval { attr_accessor :original_filename, :content_type }
+      data.original_filename = "#{SecureRandom.hex(5)}.png"
+      data.content_type = "image/png"
+
+      # return decoded data
+      data
+  end
 end

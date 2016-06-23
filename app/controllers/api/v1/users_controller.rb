@@ -45,7 +45,7 @@ class Api::V1::UsersController < Api::V1::ApiController
       token = User.generate_reset_token(email)
 
       ## send email to user for reset password with token as a content
-      UserMailer.reset_password(email, token).deliver_now  
+      # UserMailer.reset_password(email, token).deliver_now  
 
       render( json: { passcode: token}.to_json, status: 200 )
     else
@@ -80,13 +80,13 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def create_params
     params.require(:user).permit(
-      :email, :full_name, :password, :password_confirmation
+      :email, :first_name, :last_name, :password, :password_confirmation
     ).delete_if { |k,v| v.nil? }
   end
 
   def update_params
     params.require(:user).permit(
-      :email, :password, :password_confirmation, :full_name, :username, :first_name, :last_name, :avatar,:skin_tone, :body_shape, :body_height, :gender
+      :email, :password, :password_confirmation, :first_name, :last_name, :username, :first_name, :last_name, :avatar,:skin_tone, :body_shape, :body_height, :gender
     )
   end
 

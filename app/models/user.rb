@@ -20,13 +20,9 @@ class User < ActiveRecord::Base
   
   before_create :generate_authentication_token
   
-  
-  
-  def full_name2
-    self.full_name.blank? ? "#{self.first_name} #{self.last_name}" : self.full_name
+  def full_name
+    "#{self.first_name} #{self.last_name}"
   end
-  
-  
   
   # reset password mechanism, using SecureRandom.hex(2) 4 alpha-numeric
   def self.generate_reset_token(email)
