@@ -1,4 +1,5 @@
 class Merchant < ActiveRecord::Base
+  has_many :trips
   
   has_attached_file :picture,
       :styles => {

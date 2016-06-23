@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :social_networks
-  has_many :outfits
+  has_many :trips
   
   has_attached_file :avatar,
                     :styles => {
