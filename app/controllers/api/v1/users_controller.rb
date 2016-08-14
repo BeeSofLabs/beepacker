@@ -3,16 +3,16 @@ class Api::V1::UsersController < Api::V1::ApiController
 
   def create
     user = ManualUser.new(create_params)
-    begin
+    # begin
 
       user.save!
       render(
         json: API::V1::UserSerializer.new(user, extra: true).to_json,
         status: 200
       )
-    rescue
-      return api_error(status: 500, errors: user.errors.to_a.join(", "))
-    end
+    # rescue
+    #   return api_error(status: 500, errors: user.errors.to_a.join(", "))
+    # end
   end
 
   def update
